@@ -28,6 +28,11 @@
                     <td>{{ $mapel_guru->mapel->nama_mata_pelajaran }}</td>
                 </tr>
                 <tr>
+                    <td>Jurusan</td>
+                    <td>:</td>
+                    <td>{{ $mapel_guru->jurusan }}</td>
+                </tr>
+                <tr>
                     <td>Kelas</td>
                     <td>:</td>
                     <td>{{ $mapel_guru->kelas }}</td>

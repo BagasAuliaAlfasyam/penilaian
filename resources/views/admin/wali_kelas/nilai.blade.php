@@ -223,7 +223,7 @@
                         <tr>
                             <td>Orang Tua / Wali</td>
                             <td>Wali Kelas</td>
-                            <td>Kepala MDT</td>
+                            <td>Kepala Sekolah</td>
                         </tr>
                         <tr style="height:100px;">
                             <td></td>
@@ -233,7 +233,7 @@
                         <tr>
                             <td><b><u>{{ $siswa->wali }}</u></b></td>
                             <td><b><u>{{ $wali_kelas->guru->nama_guru }}</u></b></td>
-                            <td><b><u>Ust. H. Ahmad Ghozali</u></b></td>
+                            <td><b><u>Drs. Mukhtaruddin, M.Pd</u></b></td>
                         </tr>
                     </table>
                 </div>

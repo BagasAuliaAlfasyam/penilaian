@@ -22,6 +22,7 @@
                                 <th>No</th>
                                 <th>NISN</th>
                                 <th>Nama</th>
+                                <th>Jurusan</th>
                                 <th>Kelas</th>
                                 <th>Jenis Kelamin</th>
                                 <th>Wali</th>
@@ -67,6 +68,10 @@
                     {
                         data: 'nama_siswa',
                         name: 'nama_siswa'
+                    },
+                    {
+                        data: 'jurusan',
+                        name: 'jurusan'
                     },
                     {
                         data: 'kelas',

@@ -349,7 +349,7 @@
                                         <tr>
                                             <td><b><u id="td_wali_siswa"></u></b></td>
                                             <td><b><u id="td_wali_kelas"></u></b></td>
-                                            <td><b><u>Ust. H. Ahmad Ghozali</u></b></td>
+                                            <td><b><u>Drs. Mukhtaruddin, M.Pd</u></b></td>
                                         </tr>
                                     </table>
                                 </div>

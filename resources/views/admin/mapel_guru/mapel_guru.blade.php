@@ -28,6 +28,7 @@
                                 <th>No</th>
                                 <th>Guru</th>
                                 <th>Mata Pelajaran</th>
+                                <th>Jurusan</th>
                                 <th>Kelas</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -73,12 +74,20 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
+                            <label>Jurusan</label>
+                            <select name="jurusan" id="jurusan" class="form-control fc-edited">
+                                <option value="">----</option>
+                                <option value="IPA">IPA</option>
+                                <option value="IPS">IPS</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
                             <label>Kelas</label>
                             <select name="kelas" id="kelas" class="form-control fc-edited">
                                 <option value="">----</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="X">X</option>
+                                <option value="XI">XI</option>
+                                <option value="XII">XII</option>
                             </select>
                         </div>
                         <button class="btn btn-sm btn-primary float-end d-flex" id="btn-tam-ust-map">
@@ -120,6 +129,7 @@
                         <input type="hidden" name="id_thn_pel_edit" id="id_thn_pel_edit">
                         <input type="hidden" name="guru-edit-old" id="guru-edit-old">
                         <input type="hidden" name="mapel-edit-old" id="mapel-edit-old">
+                        <input type="hidden" name="jurusan-edit-old" id="jurusan-edit-old">
                         <input type="hidden" name="kelas-edit-old" id="kelas-edit-old">
                         <div class="form-group mb-3">
                             <label>Guru</label>
@@ -136,6 +146,10 @@
                                     <option value="{{ $mp->id }}">{{ $mp->nama_mata_pelajaran }}</option>
                                 @endforeach
                             </select>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label>Jurusan</label>
+                            <input type="text" name="jurusan-edit" id="jurusan-edit" class="form-control fc-edited" readonly>
                         </div>
                         <div class="form-group mb-3">
                             <label>Kelas</label>
@@ -194,6 +208,10 @@
                     name: 'mapel'
                 },
                 {
+                    data: 'jurusan',
+                    name: 'jurusan'
+                },                
+                {
                     data: 'kelas',
                     name: 'kelas'
                 },
@@ -222,6 +240,7 @@
             $('.notifikasi-duplikat').html('')
             $('#guru').val('')
             $('#mapel').val('')
+            $('#jurusan').val('')
             $('#kelas').val('')
         }
 
@@ -308,10 +327,12 @@
                     $('#id_thn_pel_edit').val(response.data.tahun_pelajaran_id)
                     $('#guru-edit').val(response.data.guru_id)
                     $('#mapel-edit').val(response.data.mapel_id)
+                    $('#jurusan-edit').val(response.data.jurusan)
                     $('#kelas-edit').val(response.data.kelas)
 
                     $('#guru-edit-old').val(response.data.guru_id)
                     $('#mapel-edit-old').val(response.data.mapel_id)
+                    $('#jurusan-edit-old').val(response.data.jurusan)
                     $('#kelas-edit-old').val(response.data.kelas)
                 },
                 error: function(error) {

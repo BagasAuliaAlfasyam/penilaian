@@ -23,11 +23,18 @@
                         <input type="text" name="nama-siswa-edit" id="nama-siswa-edit" class="form-control fc-edited" value="{{ $siswa->nama_siswa }}">
                     </div>
                     <div class="form-group mb-3">
+                        <label>Jurusan</label>
+                        <select name="jurusan-edit" id="jurusan-edit" class="form-control fc-edited">
+                            <option value="IPA" {{ $siswa->jurusan == IPA ? 'selected' : '' }}>IPA</option>
+                            <option value="IPS" {{ $siswa->jurusan == IPS ? 'selected' : '' }}>IPS</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
                         <label>Kelas</label>
                         <select name="kelas-edit" id="kelas-edit" class="form-control fc-edited">
-                            <option value="1" {{ $siswa->kelas == 1 ? 'selected' : '' }}>1</option>
-                            <option value="2" {{ $siswa->kelas == 2 ? 'selected' : '' }}>2</option>
-                            <option value="3" {{ $siswa->kelas == 3 ? 'selected' : '' }}>3</option>
+                            <option value="X" {{ $siswa->kelas == X ? 'selected' : '' }}>X</option>
+                            <option value="XI" {{ $siswa->kelas == XI ? 'selected' : '' }}>XI</option>
+                            <option value="XII" {{ $siswa->kelas == XII ? 'selected' : '' }}>XII</option>
                         </select>
                     </div>
                     <div class="form-group mb-3">

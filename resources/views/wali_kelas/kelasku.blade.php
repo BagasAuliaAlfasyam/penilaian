@@ -16,6 +16,7 @@
                         <tr style="border-bottom:2px solid #5034FF;">
                             <th>Tahun Pelajaran</th>
                             <th>Semester</th>
+                            <th>Jurusan</th>
                             <th>Kelas</th>
                             <!-- <th>Satus</th> -->
                             <th>Action</th>
@@ -46,6 +47,7 @@
         columns: [
             {data: 'tahun_pelajaran', name: 'tahun_pelajaran'},
             {data: 'semester', name: 'semester'},
+            {data: 'jurusan', name: 'jurusan'},
             {data: 'kelas', name: 'kelas'},
             // {data: 'status', name: 'status'},
             {data: 'action', name: 'action'}

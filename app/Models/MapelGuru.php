@@ -9,7 +9,7 @@ class MapelGuru extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['tahun_pelajaran_id', 'guru_id', 'mapel_id', 'kelas', 'status'];
+    protected $fillable = ['tahun_pelajaran_id', 'guru_id', 'mapel_id', 'jurusan', 'kelas', 'status'];
 
     public function guru()
     {

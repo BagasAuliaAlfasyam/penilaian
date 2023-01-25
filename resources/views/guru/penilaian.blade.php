@@ -17,6 +17,7 @@
                             <th>Tahun Pelajaran</th>
                             <th>Semester</th>
                             <th>Mapel</th>
+                            <th>Jurusan</th>
                             <th>Kelas</th>
                             <th>Action</th>
                         </tr>
@@ -48,6 +49,7 @@
                 {data: 'tahun_pelajaran', name: 'tahun_pelajaran'},
                 {data: 'semester', name: 'semester'},
                 {data: 'mapel', name: 'mapel'},
+                {data: 'jurusan', name: 'jurusan'},
                 {data: 'kelas', name: 'kelas'},
                 {data: 'action', name: 'action'}
             ]

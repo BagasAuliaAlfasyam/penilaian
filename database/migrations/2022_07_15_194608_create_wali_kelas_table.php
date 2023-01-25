@@ -19,7 +19,8 @@ class CreateWaliKelasTable extends Migration
             $table->foreign('guru_id')->references('id')->on('gurus');
             $table->string('tahun_pelajaran');
             $table->string('semester');
-            $table->integer('kelas');
+            $table->string('jurusan');
+            $table->string('kelas');
             $table->integer('status');
             $table->timestamps();
         });

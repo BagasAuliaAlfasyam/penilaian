@@ -23,6 +23,7 @@
                                 <th>Guru</th>
                                 <th>Tahun Pelajaran</th>
                                 <th>Semester</th>
+                                <th>Jurusan</th>
                                 <th>Kelas</th>
                                 <th>Status</th>
                                 <th>Action</th>
@@ -75,12 +76,20 @@
                             </select>
                         </div>
                         <div class="form-group mb-3">
+                            <label>Jurusan</label>
+                            <select name="jurusan" id="jurusan" class="form-control fc-edited">
+                                <option value="">----</option>
+                                <option value="IPA">IPA</option>
+                                <option value="IPS">IPS</option>
+                            </select>
+                        </div>
+                        <div class="form-group mb-3">
                             <label>Kelas</label>
                             <select name="kelas" id="kelas" class="form-control fc-edited">
                                 <option value="">----</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
+                                <option value="X">X</option>
+                                <option value="XI">XI</option>
+                                <option value="XII">XII</option>
                             </select>
                         </div>
                         <button class="btn btn-sm btn-primary float-end d-flex" id="btn-tam-wali-kelas">
@@ -185,6 +194,10 @@
                     name: 'semester'
                 },
                 {
+                    data: 'jurusan',
+                    name: 'jurusan'
+                },
+                {
                     data: 'kelas',
                     name: 'kelas'
                 },
@@ -213,6 +226,7 @@
             $('#guru').val('')
             $('#tahun_pelajaran').val('')
             $('#semester').val('')
+            $('#jurusan').val('')
             $('#kelas').val('')
             $('.notifikasi-duplikat').html('')
         }

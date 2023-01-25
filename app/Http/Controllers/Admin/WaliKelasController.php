@@ -75,17 +75,20 @@ class WaliKelasController extends Controller
             'guru' => 'required',
             'tahun_pelajaran' => 'required',
             'semester' => 'required',
+            'jurusan' => 'required',
             'kelas' => 'required'
         ], [
             'guru.required' => 'Guru harus dipilih',
             'tahun_pelajaran.required' => 'Tahun pelajaran harus dipilih',
             'semester.required' => 'Semester harus dipilih',
+            'Jurusan.required' => 'Jurusan harus dipilih',
             'kelas.required' => 'Kelas harus dipilih',
         ]);
 
         // cek jika datanya sudah ada
         $cekDuplikat = WaliKelas::where('tahun_pelajaran', request('tahun_pelajaran'))
             ->where('semester', request('semester'))
+            ->where('jurusan', request('jurusan'))
             ->where('kelas', request('kelas'))
             ->get();
 
@@ -96,7 +99,10 @@ class WaliKelasController extends Controller
         } else {
 
             // cek siswa yang dipilih berdasarkan kelas ada atau tidak
-            $cek_siswa = Siswa::where('kelas', request('kelas'))->count();
+            $cek_siswa = Siswa::
+            where('jurusan', request('jurusan'))
+            ->where('kelas', request('kelas'))
+            ->count();
             if ($cek_siswa < 1) {
                 return response()->json([
                     'duplikat' => 'Siswa di kelas ini belum ada, silahkan tambahkan siswa nya dulu'
@@ -107,12 +113,16 @@ class WaliKelasController extends Controller
                     'guru_id' => request('guru'),
                     'tahun_pelajaran' => request('tahun_pelajaran'),
                     'semester' => request('semester'),
+                    'jurusan' => request('jurusan'),
                     'kelas' => request('kelas'),
                     'status' => 0,
                 ]);
 
                 // ambil siswa berdasarkan kelas yang dipilih
-                $siswa = Siswa::where('kelas', request('kelas'))->get();
+                $siswa = Siswa::
+                where('jurusan', request('jurusan'))
+                ->where('kelas', request('kelas'))
+                ->get();
 
                 // masukan semua siswa berdasarkan kelas yang dipilih ke table wali_kelas_siswas
                 for ($i = 0; $i < count($siswa); $i++) {
@@ -194,9 +204,9 @@ class WaliKelasController extends Controller
         $cek_jumlah_wali_kelas = WaliKelas::where('status', 1)
             ->get();
 
-        if (count($cek_jumlah_wali_kelas) >= 3) {
+        if (count($cek_jumlah_wali_kelas) >= 6) {
             return response()->json([
-                'duplikat' => 'Wali kelas yang aktif tidak boleh lebih dari 3 orang'
+                'duplikat' => 'Wali kelas yang aktif tidak boleh lebih dari 6 orang'
             ]);
         } else {
 
@@ -271,7 +281,7 @@ class WaliKelasController extends Controller
         $wali_kelas_siswa = WaliKelasSiswa::join('siswas', 'siswas.id', '=', 'wali_kelas_siswas.siswa_id')
             ->join('wali_kelas', 'wali_kelas.id', '=', 'wali_kelas_siswas.wali_kelas_id')
             ->where('wali_kelas_id', $wali_kelas_id)
-            ->select('wali_kelas_siswas.*', 'siswas.id as siswa_id', 'siswas.nama_siswa as nama_siswa', 'wali_kelas.tahun_pelajaran as tahun_pelajaran', 'wali_kelas.semester as semester', 'wali_kelas.kelas as kelas')
+            ->select('wali_kelas_siswas.*', 'siswas.id as siswa_id', 'siswas.nama_siswa as nama_siswa', 'wali_kelas.tahun_pelajaran as tahun_pelajaran', 'wali_kelas.semester as semester', 'wali_kelas.jurusan as jurusan', 'wali_kelas.kelas as kelas')
             ->orderBy('wali_kelas_siswas.jumlah_nilai', 'desc')
             ->orderBy('nama_siswa', 'asc')
             ->get();

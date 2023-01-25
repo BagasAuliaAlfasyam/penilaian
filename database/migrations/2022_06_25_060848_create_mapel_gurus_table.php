@@ -21,7 +21,8 @@ class CreateMapelGurusTable extends Migration
             $table->foreign('guru_id')->references('id')->on('gurus');
             $table->foreignId('mapel_id');
             $table->foreign('mapel_id')->references('id')->on('mata_pelajarans');
-            $table->integer('kelas');
+            $table->string('jurusan');
+            $table->string('kelas');
             $table->integer('status')->default(0);
             $table->timestamps();
         });

@@ -73,19 +73,19 @@ class NilaiController extends Controller
                 'uas' => request('uas'),
             ]);
 
-            $rata2 = Nilai::find($id_nilai);
-            $n1 = $rata2->n1 !== 0 ? 1 : 0;
+            $rata2 = Nilai::find($id_nilai); //rata rata nilai sama dengan temukan model nilai melalui id nilai
+            $n1 = $rata2->n1 !== 0 ? 1 : 0; //deklarasi variabel nilai 1 sampai 6
             $n2 = $rata2->n2 !== 0 ? 1 : 0;
             $n3 = $rata2->n3 !== 0 ? 1 : 0;
             $n4 = $rata2->n4 !== 0 ? 1 : 0;
             $n5 = $rata2->n5 !== 0 ? 1 : 0;
             $n6 = $rata2->n6 !== 0 ? 1 : 0;
-            $rata2->update([
+            $rata2->update([ // metod update rata rata dengan hasil nilai 1 sampai 6 di tambah dan di bagi 6 (karna ada 6 nilai)
                 'rata_rata_n' => ($rata2->n1 + $rata2->n2 + $rata2->n3 + $rata2->n4 + $rata2->n5 + $rata2->n6) / ($n1 + $n2 + $n3 + $n4 + $n5 + $n6)
             ]);
 
-            $nilai_akhir = Nilai::find($id_nilai);
-            if ($nilai_akhir->uas !== 0) {
+            $nilai_akhir = Nilai::find($id_nilai); //variabel nilai akhir sama dengan temukan model nilai melalui id nilai
+            if ($nilai_akhir->uas !== 0) { //jika nilai uas to
                 $nilai_akhir->update([
                     'nilai_akhir' => ($nilai_akhir->uas + $nilai_akhir->rata_rata_n) / 2
                 ]);

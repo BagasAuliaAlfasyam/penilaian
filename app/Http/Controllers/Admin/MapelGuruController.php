@@ -64,25 +64,31 @@ class MapelGuruController extends Controller
         request()->validate([
             'guru' => 'required',
             'mapel' => 'required',
+            'jurusan' => 'required',
             'kelas' => 'required'
         ], [
             'guru.required' => 'Guru harus dipilih',
             'mapel.required' => 'Mata pelajaran harus dipilih',
+            'jurusan.required' => 'Jurusan harus dipilih',
             'kelas.required' => 'Kelas harus dipilih',
         ]);
 
         $cekDuplikat = MapelGuru::where('tahun_pelajaran_id', request('tahun_pelajaran_id'))
             ->where('guru_id', request('guru'))
             ->where('mapel_id', request('mapel'))
+            ->where('jurusan', request('jurusan'))
             ->where('kelas', request('kelas'))
             ->get();
 
         if (count($cekDuplikat) > 0) {
             return response()->json([
-                'duplikat' => 'Guru, mapel dan kelas ini sudah terdaftar'
+                'duplikat' => 'Guru, Mapel, Jurusan dan kelas ini sudah terdaftar'
             ]);
         } else {
-            $cekSiswa = Siswa::where('kelas', request('kelas'))->get();
+            $cekSiswa = Siswa::
+            where('jurusan', request('jurusan'))
+            ->where('kelas', request('kelas'))
+            ->get();
             if (count($cekSiswa) <= 0) {
                 return response()->json([
                     'duplikat' => 'Siswa di kelas ini masih kosong, silahkan input data siswa !'
@@ -90,6 +96,7 @@ class MapelGuruController extends Controller
             } else {
                 $cekDuplikat2 = MapelGuru::where('tahun_pelajaran_id', request('tahun_pelajaran_id'))
                     ->where('mapel_id', request('mapel'))
+                    ->where('jurusan', request('jurusan'))
                     ->where('kelas', request('kelas'))
                     ->get();
 
@@ -102,10 +109,14 @@ class MapelGuruController extends Controller
                         'tahun_pelajaran_id' => request('tahun_pelajaran_id'),
                         'guru_id' => request('guru'),
                         'mapel_id' => request('mapel'),
+                        'jurusan' => request('jurusan'),
                         'kelas' => request('kelas')
                     ]);
 
-                    $siswa = Siswa::where('kelas', request('kelas'))->get();
+                    $siswa = Siswa::
+                    where('jurusan', request('jurusan'))
+                    ->where('kelas', request('kelas'))
+                    ->get();
 
                     for ($i = 0; $i < count($siswa); $i++) {
                         Nilai::create([
@@ -139,6 +150,7 @@ class MapelGuruController extends Controller
         $cekDuplikat = MapelGuru::where('tahun_pelajaran_id', request('id_thn_pel_edit'))
             ->where('guru_id', request('guru-edit'))
             ->where('mapel_id', request('mapel-edit'))
+            ->where('jurusan', request('jurusan-edit'))
             ->where('kelas', request('kelas-edit'))
             ->get();
 
@@ -151,6 +163,7 @@ class MapelGuruController extends Controller
 
             $cekDuplikat2 = MapelGuru::where('tahun_pelajaran_id', request('id_thn_pel_edit'))
                 ->where('mapel_id', request('mapel-edit'))
+                ->where('jurusan', request('jurusan-edit'))
                 ->where('kelas', request('kelas-edit'))
                 ->get();
             if (request('mapel-edit') !== request('mapel-edit-old') && count($cekDuplikat2) > 0 || request('kelas-edit') !== request('kelas-edit-old') && count($cekDuplikat2) > 0) {

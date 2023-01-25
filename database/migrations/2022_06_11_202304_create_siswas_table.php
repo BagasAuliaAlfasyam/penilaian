@@ -17,10 +17,11 @@ class CreateSiswasTable extends Migration
             $table->id();
             $table->string('nisn');
             $table->string('nama_siswa');
+            $table->string('jurusan');
             $table->string('jenis_kelamin');
             $table->string('telepon_wali');
             $table->text('alamat');
-            $table->integer('kelas');
+            $table->string('kelas');
             $table->timestamps();
         });
     }

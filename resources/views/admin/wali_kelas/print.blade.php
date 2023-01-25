@@ -222,7 +222,7 @@
                         <tr>
                             <td><b><u>{{ $siswa->wali }}</u></b></td>
                             <td><b><u>{{ $wali_kelas }}</u></b></td>
-                            <td><b><u>Ust. H. Ahmad Ghozali</u></b></td>
+                            <td><b><u>Drs.Mukhtaruddin, M.Pd</u></b></td>
                         </tr>
                     </table>
                 </div>

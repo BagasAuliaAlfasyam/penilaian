@@ -178,24 +178,24 @@
                                     <table class="table table-sm" style="font-size:14px;border:1px solid transparent;" id="tab-siswa">
                                         <thead>
                                             <tr>
-                                                <td>Nama MDT</td>
+                                                <td>Nama Sekolah</td>
                                                 <td>:</td>
-                                                <td><b>BAHRUL MAGHFIROH</b></td>
+                                                <td><b>SMA Negeri 7 Lhokseumawe</b></td>
                                                 <td>Kelas</td>
                                                 <td>:</td>
-                                                <td><span id="td_kelas"></span></td>
+                                                <td>{{ $siswa->kelas }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Alamat</td>
                                                 <td>:</td>
-                                                <td>Jl. Tegal Rotan No. 72</td>
+                                                <td>Jl. Rancung, Batuphat Timur,</td>
                                                 <td>Semester</td>
                                                 <td>:</td>
                                                 <td><span id="td_semester"></span></td>
                                             </tr>
                                             <tr>
                                                 <td colspan="2"></td>
-                                                <td>Sawah Baru, Ciputat, Tangsel</td>
+                                                <td>Kec. Muara Satu, Kota Lhokseumawe</td>
                                                 <td>Tahun Pelajaran</td>
                                                 <td>:</td>
                                                 <td><span id="td_tahun_pelajaran"></span></td>
@@ -435,25 +435,25 @@
                             }
 
                             $('.tbody-siswa').append('<tr>\
-                                                    <td>' + baris + '</td>\
-                                                    <td>' + value.nama_siswa + '</td>\
-                                                    <td>' + kel + '</td>\
-                                                    <td>' + ker + '</td>\
-                                                    <td>' + keb + '</td>\
-                                                    <td>' + value.sakit + '</td>\
-                                                    <td>' + value.izin + '</td>\
-                                                    <td>' + value.alpha + '</td>\
-                                                    <td>' + cat_wal + '</td>\
-                                                    <td>' + value.jumlah_nilai + '</td>\
-                                                    <td>' + status +
+                                                        <td>' + baris + '</td>\
+                                                        <td>' + value.nama_siswa + '</td>\
+                                                        <td>' + kel + '</td>\
+                                                        <td>' + ker + '</td>\
+                                                        <td>' + keb + '</td>\
+                                                        <td>' + value.sakit + '</td>\
+                                                        <td>' + value.izin + '</td>\
+                                                        <td>' + value.alpha + '</td>\
+                                                        <td>' + cat_wal + '</td>\
+                                                        <td>' + value.jumlah_nilai + '</td>\
+                                                        <td>' + status +
                                 '</td>\
-                                                    <td>\
-                                                        <button class="btn btn-sm btn-success btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdropEdit" wali_kelas_siswa_id="' +
+                                                        <td>\
+                                                            <button class="btn btn-sm btn-success btn-edit" data-bs-toggle="modal" data-bs-target="#staticBackdropEdit" wali_kelas_siswa_id="' +
                                 value.id + '" wali_kelas_id="' + value.wali_kelas_id + '" siswa_id="' + value.siswa_id +
                                 '" tahun_pelajaran="' + value.tahun_pelajaran + '" semester="' + value.semester + '">Edit</button>\
-                                                        ' + nilai + '\
-                                                    </td>\
-                                                </tr>')
+                                                            ' + nilai + '\
+                                                        </td>\
+                                                    </tr>')
                         })
                         $('#tab-siswa').DataTable({
                             language: {
@@ -577,12 +577,12 @@
                             no = no + 1
 
                             $('#td_mapel').append('<tr>\
-                                                <td style="text-align:center;">' + no + '</td>\
-                                                <td>' + value.mata_pelajaran + '</td>\
-                                                <td style="text-align:center;">' + value.nilai_akhir + '</td>\
-                                                <td style="text-align:center;"><i>' + value.nilai_akhir_terbilang + '</i></td>\
-                                                <td style="text-align:center;">' + value.rata_rata_nilai + '</td>\
-                                            </tr>')
+                                                    <td style="text-align:center;">' + no + '</td>\
+                                                    <td>' + value.mata_pelajaran + '</td>\
+                                                    <td style="text-align:center;">' + value.nilai_akhir + '</td>\
+                                                    <td style="text-align:center;"><i>' + value.nilai_akhir_terbilang + '</i></td>\
+                                                    <td style="text-align:center;">' + value.rata_rata_nilai + '</td>\
+                                                </tr>')
                         })
 
                         $('#td_jumlah').append(response.jumlah)

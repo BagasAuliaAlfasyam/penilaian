@@ -22,12 +22,20 @@
                         <input type="text" name="nama_siswa" id="nama_siswa" class="form-control fc-edited">
                     </div>
                     <div class="form-group mb-3">
+                        <label>Jurusan</label>
+                        <select name="jurusan" id="jurusan" class="form-control fc-edited">
+                            <option value="">----</option>
+                            <option value="IPA">IPA</option>
+                            <option value="IPS">IPS</option>
+                        </select>
+                    </div>
+                    <div class="form-group mb-3">
                         <label>Kelas</label>
                         <select name="kelas" id="kelas" class="form-control fc-edited">
                             <option value="">----</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
+                            <option value="X">X</option>
+                            <option value="XI">XI</option>
+                            <option value="XII">XII</option>
                         </select>
                     </div>
                     <div class="form-group mb-3">

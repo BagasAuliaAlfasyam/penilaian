@@ -28,6 +28,11 @@
                     <td>{{ $mapel_guru->mapel->nama_mata_pelajaran }}</td>
                 </tr>
                 <tr>
+                    <td>Jurusan</td>
+                    <td>:</td>
+                    <td>{{ $mapel_guru->jurusan }}</td>
+                </tr>
+                <tr>
                     <td>Kelas</td>
                     <td>:</td>
                     <td>{{ $mapel_guru->kelas }}</td>
@@ -53,12 +58,12 @@
                             <tr style="border-bottom:2px solid #5034FF;">
                                 <th>No</th>
                                 <th>Siswa</th>
-                                <th>NH 1</th>
-                                <th>NH 2</th>
-                                <th>NH 3</th>
-                                <th>NH 4</th>
-                                <th>NH 5</th>
-                                <th>NH 6</th>
+                                <th>NH (Senin)</th>
+                                <th>NH (Selasa)</th>
+                                <th>NH (Rabu)</th>
+                                <th>NH (Kamis)</th>
+                                <th>NH (Jumat)</th>
+                                <th>NH (Sabtu)</th>
                                 <th>Rata-rata NH</th>
                                 <th>UAS</th>
                                 <th>Nilai Akhir</th>
@@ -89,12 +94,12 @@
                         <table class="table">
                             <thead>
                                 <tr style="border-bottom:2px solid #5034FF;">
-                                    <td>N1</td>
-                                    <td>N2</td>
-                                    <td>N3</td>
-                                    <td>N4</td>
-                                    <td>N5</td>
-                                    <td>N6</td>
+                                    <td>NH (Senin)</td>
+                                    <td>NH (Selasa)</td>
+                                    <td>NH (Rabu)</td>
+                                    <td>NH (Kamis)</td>
+                                    <td>NH (Jumat)</td>
+                                    <td>NH (Sabtu)</td>
                                     <td>UAS</td>
                                 </tr>
                             </thead>

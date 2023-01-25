@@ -43,6 +43,7 @@ class SiswaController extends Controller
         request()->validate([
             'nisn' => 'required|unique:siswas,nisn',
             'nama_siswa' => 'required',
+            'jurusan' => 'required',
             'kelas' => 'required',
             'jenis_kelamin' => 'required',
             'nama_wali' => 'required',
@@ -52,6 +53,7 @@ class SiswaController extends Controller
             'nisn.required' => 'NISN harus di isi',
             'nisn.unique' => 'NISN sudah terdaftar',
             'nama_siswa.required' => 'Nama siswa harus di isi',
+            'jurusan.required' => 'Jurusan harus di pilih',
             'kelas.required' => 'Kelas harus di pilih',
             'jenis_kelamin.required' => 'Jenis kelamin harus dipilih',
             'nama_wali.required' => 'Nama wali harus di isi',
@@ -63,6 +65,7 @@ class SiswaController extends Controller
         Siswa::create([
             'nisn' => strtoupper(request('nisn')),
             'nama_siswa' => ucwords(request('nama_siswa')),
+            'jurusan' => request('jurusan'),
             'kelas' => request('kelas'),
             'jenis_kelamin' => request('jenis_kelamin'),
             'wali' => ucwords(request('nama_wali')),

@@ -25,9 +25,9 @@
                     <table class="table table-sm" style="font-size:14px;border:1px solid transparent;" id="tab-siswa">
                         <thead>
                             <tr>
-                                <td>Nama MDT</td>
+                                <td>Nama Sekolah</td>
                                 <td>:</td>
-                                <td><b>BAHRUL MAGHFIROH</b></td>
+                                <td><b>SMA Negeri 7 Lhokseumawe</b></td>
                                 <td>Kelas</td>
                                 <td>:</td>
                                 <td>{{ $siswa->kelas }}</td>
@@ -35,14 +35,14 @@
                             <tr>
                                 <td>Alamat</td>
                                 <td>:</td>
-                                <td>Jl. Tegal Rotan No. 72</td>
+                                <td>Jl. Rancung, Batuphat Timur,</td>
                                 <td>Semester</td>
                                 <td>:</td>
                                 <td>{{ $tahun_pelajaran->semester }}</td>
                             </tr>
                             <tr>
                                 <td colspan="2"></td>
-                                <td>Sawah Baru, Ciputat, Tangsel</td>
+                                <td>Kec. Muara Satu, Kota Lhokseumawe</td>
                                 <td>Tahun Pelajaran</td>
                                 <td>:</td>
                                 <td>{{ $tahun_pelajaran->tahun_pelajaran }}</td>
